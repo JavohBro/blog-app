@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id='post_content'>
+    {% for post in posts %}
+      <article class="media content-section">
+        <div class="row">
+          <div class="col-1">
+           <img class="circular-image img float-end" src="{{ post.author.profile.image.url }}" />
+          </div>
+          <div class="media-body col-8">
+            <div class="article-metadata">
+              <a href="{% url 'user-posts' post.author.username %}" class="mr-2 link-underline link-underline-opacity-0">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a href="{% url 'post-detail' post.id %}" class="article-title link-underline link-underline-opacity-0 link-dark">{{ post.title }}</a></h2>
+            <div class="row">
+              <div class="col-12 bg-light rounded">
+                <a href="{% url 'post-detail' post.id %}">
+                {% if post.post_image and post.post_video %} 
+                  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                    <div class="carousel-indicators">
+                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div>
+                          <video width="750" height="500" src="{{ post.post_video.url }}" class="object-fit-contain rounded bg-bright" controls autoplay muted></video>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ post.post_image.url }}" class="img-fluid rounded bg-bright"/>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                {% elif post.post_image %}
+                  <img src="{{ post.post_image.url }}" class="img-fluid rounded" />
+                {% elif post.post_video %}
+                  <video width="750" height="500" src="{{ post.post_video.url }}" class="object-fit-contain rounded bg-bright" controls autoplay muted></video>
+                {% endif %}
+                </a>
+              </div>
+            </div>
+            <div id="postContent">
+              <p class="article-content">{{ post.content }}</p>
+            </div>
+            <div class="row bg-light rounded border-bottom">
+              {% if user.is_authenticated %}
+                <button id="like-btn{{post.id}}" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-1  like-btn" type="button">
+                  <i data-feather="heart"></i>
+                  <span class="like-count" id="like-count{{post.id}}">{{ post.likes }}</span>
+                </button>
+                <a class="btn btn-light border-0 col-1" type="button" href="{% url 'post-detail' post.id %}">
+                  <i data-feather="message-square"></i>
+                </a>
+              {% endif %}
+              <button id="seeMoreBtn" class="col-2 offset-8 btn btn-light border-0" onclick="toggleText()">See More</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+    <div class="col-8 row">
+        {% if is_paginated %}
+          {% if page_obj.has_previous %}
+            <a class="btn btn-outline-primary mb-4 col-1 mt-4 offset-3" href="?page=1"><i data-feather="chevrons-left"></i></a>
+            <a class="btn btn-outline-primary mb-4 col-2 mt-4" href="?page={{ page_obj.previous_page_number }}"><i data-feather="chevron-left"></i></a>
+          {% endif %}
+
+          {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+              <a class="btn btn-primary mb-4 col-1 mt-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+              <a class="btn btn-outline-primary mb-4 col-1 mt-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <a class="btn btn-outline-primary mb-4 col-2 mt-4" href="?page={{ page_obj.next_page_number }}"><i data-feather="chevron-right"></i></a>
+            <a class="btn btn-outline-primary mb-4 col-1 mt-4" href="?page={{ page_obj.paginator.num_pages }}"><i data-feather="chevrons-right"></i></a>
+          {% endif %}
+        {% endif %}
+      </div>
+  </div>
+{% endblock %}
+{% comment %} 
+
+add some style to as_p form
+
+{% endcomment %}

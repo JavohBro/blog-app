@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="content-section row">
+    <div class="media row">
+      <div class="row">
+        <div class="col-2">
+          <img class="profile-image img" src="{{ user.profile.image.url }}" />
+        </div>
+        <div class="media-body col-3">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+        <div class="offset-6 col-1">
+          <a onclick="goBack()" class="btn border-0" type="button"><i data-feather="corner-down-left"></i></a>
+        </div>
+      </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data" class="col-8">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Profile Info</legend>
+        {% comment %} {{ form|crispy }} {% endcomment %}
+        {{ u_form.as_p }}
+        {{ p_form.as_p }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-primary" type="submit"><i data-feather="edit-3"></i> Update</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

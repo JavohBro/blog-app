@@ -1,0 +1,19 @@
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a href="{% url 'profile-posts' username=user.username %}" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="circular-image img mt-1" src="{{ user.profile.image.url }}" /></a>
+          <ul class="dropdown-menu">
+            <li>
+                <a href="{% url 'profile-posts' username=user.username %}" class="btn btn-light text-start dropdown-item" role="button">
+                    <i data-feather="user" class="align-top"></i> Profile
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'profile' %}" class="btn btn-light text-start dropdown-item" role="button">
+                    <i data-feather="tool" class="align-top"></i> Settings
+                </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
