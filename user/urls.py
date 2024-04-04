@@ -28,7 +28,7 @@ urlpatterns = [
     path('comment/<int:pk>/edit/', views.comment_edit, name='comment-edit'),
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment-delete'),
 
-    path('about/', views.about, name='about'),
+    path('popular/', views.get_most_liked_posts, name='popular'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

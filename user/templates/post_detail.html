@@ -55,14 +55,13 @@
             </div>
             <div class="row bg-light rounded border-bottom">
               {% if user.is_authenticated %}
-                <button id="like-btn" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-1" type="button">
+                <button id="like-btn{{post.id}}" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-1  like-btn" type="button">
                   <i data-feather="heart"></i>
-                  <span id="like-count">{{ post.likes }}</span>
-                </button>
-                <a class="btn btn-light border-0 col-1" type="button" href="{% url 'add-comment' post.id %}">
+                  <span class="like-count" id="like-count{{post.id}}">{{ post.likes }}</span>
+                </button> 
+                <a class="btn btn-light border-0 col-1" type="button" href="{% url 'post-detail' post.id %}">
                   <i data-feather="message-square"></i>
                 </a>
-              {% endif %}
 
               <button id="seeMoreBtn" class="col-2 offset-8 btn btn-light border-0" onclick="toggleText()">See More</button>
               
@@ -76,9 +75,9 @@
                   </button>
                 </div>
               </form>
+            {% endif %}
 
-
-              {% for comment in post.comments.all %}
+              {% for comment in post.comments.all|dictsortreversed:"created_at" %}
                 <div class="comment mt-2 rounded border-bottom border-2">
                   <img class="circular-image img" src="{{ comment.author.profile.image.url }}" />
                   <a href="{% url 'user-posts' post.author.username %}" class="mr-2 link-underline link-underline-opacity-0">{{ post.author }}</a>

@@ -65,7 +65,11 @@
     transition: 1s;
     /* Hide button by default */
 }
-
+.logo{
+    width: 5vh;
+    height: 5vh;
+    margin-top: -1vh;
+}
 /* comment */
 .comment-container {
     position: relative;
@@ -117,6 +121,7 @@
 .content-section form input[type="password"],
 .content-section form textarea {
     width: 100%;
+    min-height: 45px;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;

@@ -4,12 +4,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="shortcut icon" type="icon/png" href="{% static 'icons/blue_star.png' %}">
+
     <title>
       {% block title %}
-        Javoh.Bro
+      Javoh.Bro
       {% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
@@ -20,7 +22,7 @@
       <nav class="navbar navbar-expand-lg border-bottom bg-light fixed-top row shadow p-1 mb-3 bg-body-tertiary rounded">
         <div class="container">
           <div class="col-2 row">
-            <a href="{% url 'home' %}" class="offset-1 fs-3 fw-bold link-underline link-underline-opacity-0 text-primary"> Javoh.Bro</a>
+            <a href="{% url 'home' %}" class="offset-1 fs-3 fw-bold link-underline link-underline-opacity-0 text-primary"><img src="{% static 'icons/blue_star.png' %}" alt="logo" class="logo"/> Javoh.Bro</a>
           </div>
           <div class="offset-6 collapse navbar-collapse d-flex" id="navbarToggle">
             <div class="navbar-nav offset-9">
@@ -43,7 +45,7 @@
             <a href="{% url 'home' %}" class="col-12 btn btn-light text-start {% if request.path == '/' %}active{% endif %}" role="button">
               <i data-feather="home" class="align-top"></i> Home
             </a>
-            <a href="{% url 'about' %}" class="col-12 btn btn-light text-start {% if request.path == '/about/' %}active{% endif %}" role="button">
+            <a href="{% url 'popular' %}" class="col-12 btn btn-light text-start {% if request.path == '/popular/' %}active{% endif %}" role="button">
               <i data-feather="trending-up" class="align-top"></i> Popular
             </a>
             <a href="" class="col-12 btn btn-light text-start" role="button">
@@ -61,7 +63,7 @@
           {% if user.is_authenticated %}
           <div class='offset-1 col-10 row border-bottom'>
             <a href="{% url 'profile-posts' username=user.username %}" class="col-12 btn btn-light text-start {% if request.path == '/profile-posts/' %}active{% endif %}" role="button">
-              <i data-feather="user" class="align-top"></i> Profile
+              <i data-feather="user" class="align-top"></i> My Status
             </a>
           
               <a href="{% url 'profile' %}" class="col-12 btn btn-light text-start {% if request.path == '/profile/' %}active{% endif %}" role="button">

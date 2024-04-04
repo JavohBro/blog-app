@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
   <div id='post_content'>
-    {% for post in posts %}
+    {% for post in most_liked_posts %}
       <article class="media content-section">
         <div class="row">
           <div class="col-1">
@@ -69,22 +69,22 @@
         </div>
       </article>
     {% endfor %}
-    <div class="offset-9 col-3 row">
+    <div class="offset-8 col-4 row">
         {% if is_paginated %}
           {% if page_obj.has_previous %}
-            <a class="btn btn-outline-secondary btn-sm mb-4 offset-1 col-2 mt-4" href="?page=1"><i data-feather="chevrons-left"></i></a>
+            <a class="btn btn-outline-secondary mb-4 col-2 mt-4" href="?page=1"><i data-feather="chevrons-left"></i></a>
           {% endif %}
 
             {% for num in page_obj.paginator.page_range %}
               {% if page_obj.number == num %}
-                <a class="btn btn-primary btn-sm mb-4 col-3 mt-4" href="?page={{ num }}">{{ num }}</a>
+                <a class="btn btn-primary mb-4 col-3 mt-4" href="?page={{ num }}">{{ num }}</a>
               {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
-                <a class="btn btn-outline-secondary btn-sm mb-4 col-2 mt-4" href="?page={{ num }}">{{ num }}</a>
+                <a class="btn btn-outline-secondary mb-4 col-2 mt-4" href="?page={{ num }}">{{ num }}</a>
               {% endif %}
             {% endfor %}
 
           {% if page_obj.has_next %}
-            <a class="btn btn-outline-secondary btn-sm mb-4 col-2 mt-4" href="?page={{ page_obj.paginator.num_pages }}"><i data-feather="chevrons-right"></i></a>
+            <a class="btn btn-outline-secondary mb-4 col-2 mt-4" href="?page={{ page_obj.paginator.num_pages }}"><i data-feather="chevrons-right"></i></a>
           {% endif %}
         {% endif %}
       </div>

@@ -149,11 +149,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def get_success_url(self):
         comment = self.get_object()
         return reverse_lazy('post-detail', kwargs={'pk': comment.post.pk})
-
-
-
-def about (request):
-    return render(request, 'about.html')
+    
 
 
 def register (request):
@@ -167,6 +163,11 @@ def register (request):
     else:
         form = UserRegisterForm()
     return render(request, 'user/register.html', {'form': form})
+
+def get_most_liked_posts(request):
+    most_liked_posts = Post.objects.order_by('-likes')[:10]  # Adjust this as needed
+    
+    return render(request, 'popular.html', {'most_liked_posts': most_liked_posts})
 
 
 @login_required
