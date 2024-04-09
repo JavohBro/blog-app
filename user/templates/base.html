@@ -31,7 +31,7 @@
                 <a href="{% url 'profile-posts' username=user.username %}" class="phone-profile"><img class="circular-image img mt-1" src="{{ user.profile.image.url }}" /></a>      
               {% else %}
                 <a href="{% url 'login' %}" class="nav-item nav-link text-dark">Login</a>
-                <a href="{% url 'register' %}" class="nav-item nav-link text-dark">Register</a>
+                <a href="{% url 'register' %}" class="nav-item nav-link text-dark phone-register">Register</a>
               {% endif %}
             </div>
           </div>
@@ -41,24 +41,24 @@
     <div class="row mt-3">
       <div class="col-2 border-end mt-4  bg-gradient shadow p-3 mb-5 bg-body-tertiary rounded phone-sidebar" style="height: 100vh; position: fixed; left: 0%;">
         <div class="mt-4 ml-2 phone-sbr-btn">
-          <div class='offset-1 col-10 row border-bottom'>
-            <a href="{% url 'home' %}" class="btn btn-light text-start {% if request.path == '/' %}active{% endif %}" role="button">
+          <div class='offset-1 col-10 row border-bottom phone-sdb'>
+            <a href="{% url 'home' %}" class="btn btn-light text-start {% if request.path == '/' %}active phone-sdb-hover{% endif %}" role="button">
               <i data-feather="home" class="align-top"></i> Home
-            </a>
-            <a href="{% url 'popular' %}" class="col-12 btn btn-light text-start {% if request.path == '/popular/' %}active{% endif %}" role="button">
+            </a> 
+            <a href="{% url 'popular' %}" class="col-12 btn btn-light text-start {% if request.path == '/popular/' %}active phone-sdb-hover{% endif %}" role="button">
               <i data-feather="trending-up" class="align-top"></i> Popular
             </a>
-            <a href="" class="col-12 btn btn-light text-start" role="button">
+            <a href="/" class="col-12 btn btn-light text-start" role="button">
               <i data-feather="bar-chart" class="align-top"></i> All
             </a>
           </div>
           {% if user.is_authenticated %}
-          <div class='offset-1 col-10 row border-bottom'>
-            <a href="{% url 'profile-posts' username=user.username %}" class="col-12 btn btn-light text-start {% if request.path == '/profile-posts/' %}active{% endif %}" role="button">
+          <div class='offset-1 col-10 row border-bottom phone-sdb'>
+            <a href="{% url 'profile-posts' username=user.username %}" class="col-12 btn btn-light text-start {% if request.path == '/profile-posts/' %}active phone-sdb-hover{% endif %}" role="button">
               <i data-feather="user" class="align-top"></i> My Status
             </a>
           
-              <a href="{% url 'profile' %}" class="col-12 btn btn-light text-start {% if request.path == '/profile/' %}active{% endif %}" role="button">
+              <a href="{% url 'profile' %}" class="col-12 btn btn-light text-start {% if request.path == '/profile/' %}active phone-sdb-hover{% endif %}" role="button">
                 <i data-feather="tool" class="align-top"></i> Settings
               </a>
             </div>
