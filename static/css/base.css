@@ -123,12 +123,6 @@
 
 
 @media only screen and (max-width: 600px) {
-    .site-header {
-        /* Add styles for smartphones here */
-        /* height: 5vh; */
-        /* Example background color */
-        /* Add any other styles you want to apply for smartphones */
-    }
 
     .site-header .navbar-nav {
         /* Adjust styles for the navigation links on smartphones */
