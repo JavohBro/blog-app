@@ -132,3 +132,50 @@
 
 /* Phone Model */
 
+@media only screen and (max-width: 600px) {
+    .site-header {
+        /* Add styles for smartphones here */
+        /* height: 5vh; */
+        /* Example background color */
+        /* Add any other styles you want to apply for smartphones */
+    }
+
+    .site-header .navbar-nav {
+        /* Adjust styles for the navigation links on smartphones */
+        margin-top: -5vh;
+        margin-left: 36vh;
+        float: left;
+    }
+
+    .phone-profile {
+        /* border: 2px solid red; */
+        position: absolute;
+        margin-left: 13vh;
+        width: 30px;
+    }
+
+    .phone-sidebar a {
+        margin-left: -1vh;
+    }
+
+    .phone-sbr-btn {
+        margin-left: -1vh;
+        width: 10vh;
+    }
+
+    .profile {
+        margin-left: 10vh;
+    }
+
+    .phone-img {
+        width: 15vh;
+        height: 15vh;
+
+    }
+
+    .left {
+        position: absolute;
+        margin-top: -15vh;
+        margin-left: 15vh;
+    }
+}
