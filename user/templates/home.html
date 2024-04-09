@@ -14,7 +14,7 @@
             </div>
             <h2><a href="{% url 'post-detail' post.id %}" class="article-title link-underline link-underline-opacity-0 link-dark">{{ post.title }}</a></h2>
             <div class="row">
-              <div class="col-12 bg-light rounded">
+              <div class="col-12 bg-light rounded img-center">
                 <a href="{% url 'post-detail' post.id %}">
                 {% if post.post_image and post.post_video %} 
                   <div id="carouselExampleDark" class="carousel carousel-dark slide">
@@ -56,7 +56,7 @@
             <div class="row bg-light rounded border-bottom">
               {% if user.is_authenticated %}
                 <button id="like-btn{{post.id}}" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-2 like-btn" type="button">
-                  <i data-feather="heart"></i>
+                  <i data-feather="heart" class='px'></i>
                   <span class="like-count" id="like-count{{post.id}}">{{ post.likes }}</span>
                 </button> 
                 <a class="btn btn-light border-0 col-2" type="button" href="{% url 'post-detail' post.id %}">
