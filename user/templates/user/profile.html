@@ -4,14 +4,14 @@
     <div class="media row">
       <div class="row">
         <div class="col-2">
-          <img class="profile-image img" src="{{ user.profile.image.url }}" />
+          <img class="profile-image img phone-img" src="{{ user.profile.image.url }}" />
         </div>
-        <div class="media-body col-3">
+        <div class="media-body col-3 profile">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
         </div>
         <div class="offset-6 col-1">
-          <a onclick="goBack()" class="btn border-0" type="button"><i data-feather="corner-down-left"></i></a>
+          <a onclick="goBack()" class="btn border-0 left" type="button"><i data-feather="corner-down-left"></i></a>
         </div>
       </div>
     </div>

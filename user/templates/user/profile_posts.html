@@ -4,15 +4,15 @@
     <div class="media">
       <div class="row">
         <div class="col-2">
-          <img class="profile-image img" src="{{ user.profile.image.url }}" />
+          <img class="profile-image img phone-img" src="{{ user.profile.image.url }}" />
         </div>
-        <div class="media-body col-3">
+        <div class="media-body col-3 profile">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
         </div>
         <div class="dropdown offset-6 col-1">
           <button class="btn border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i data-feather="settings" class="rotating"></i>
+            <i data-feather="settings" class="rotating left"></i>
           </button>
           <ul class="dropdown-menu shadow p-3 mb-5 bg-body-tertiary rounded">
             <li><a class="dropdown-item" href="{% url 'profile' %}"><i data-feather="edit-3"></i> Edit</a></li>
@@ -73,11 +73,11 @@
               </div>
               <div class="row bg-light rounded border-bottom">
                 {% if user.is_authenticated %}
-                  <button id="like-btn" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-1" type="button">
+                  <button id="like-btn" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-2" type="button">
                     <i data-feather="heart"></i>
                     <span id="like-count">{{ post.likes }}</span>
                   </button>
-                  <a class="btn btn-light border-0 col-1" type="button" href="{% url 'post-detail' post.id %}">
+                  <a class="btn btn-light border-0 col-2" type="button" href="{% url 'post-detail' post.id %}">
                     <i data-feather="message-square"></i>
                   </a>
                 {% endif %}

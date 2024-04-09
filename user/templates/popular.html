@@ -55,11 +55,11 @@
             </div>
             <div class="row bg-light rounded border-bottom">
               {% if user.is_authenticated %}
-                <button id="like-btn{{post.id}}" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-1  like-btn" type="button">
+                <button id="like-btn{{post.id}}" data-post-id="{{ post.id }}" class="btn btn-light border-0 col-2  like-btn" type="button">
                   <i data-feather="heart"></i>
                   <span class="like-count" id="like-count{{post.id}}">{{ post.likes }}</span>
                 </button> 
-                <a class="btn btn-light border-0 col-1" type="button" href="{% url 'post-detail' post.id %}">
+                <a class="btn btn-light border-0 col-2" type="button" href="{% url 'post-detail' post.id %}">
                   <i data-feather="message-square"></i>
                 </a>
               {% endif %}
