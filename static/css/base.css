@@ -1,0 +1,138 @@
+.profile {
+    float: left;
+    border: 2px solid red;
+}
+.red{
+    border: 1px solid red;
+}
+
+.circular-image {
+    width: 35px;
+    /* Adjust as needed */
+    height: 35px;
+    /* Adjust as needed */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-inline-end: auto;
+}
+
+.circular-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.bg-bright{
+    background-color: #d1d1d1;
+}
+
+.rotating{
+    transition: 0.6s;
+}
+.rotating:hover{
+    rotate: 90deg;
+    transition: 0.6s;
+}
+
+.profile-image {
+    width: 150px;
+    /* Adjust as needed */
+    height: 150px;
+    /* Adjust as needed */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-inline-end: auto;
+}
+.profile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+#postContent {
+    max-height: 100px;
+    /* Set maximum height for truncation */
+    overflow: hidden;
+    /* Hide overflowing text */
+}
+
+#seeMoreBtn {
+    display: none;
+    cursor: pointer;    
+    color: rgb(0, 102, 204);
+    float: inline-end;
+    transition: 1s;
+    /* Hide button by default */
+}
+.logo{
+    width: 5vh;
+    height: 5vh;
+    margin-top: -1vh;
+}
+/* comment */
+.comment-container {
+    position: relative;
+}
+
+#comment-content {
+    width: 100%;
+    height: fit-content;
+    min-height: 45px;
+    border-radius: 20px;
+    border-color: #A9A9A9;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box; 
+}
+
+.initial-size {
+    height: 30px;
+    /* Initial height of the textarea */
+    transition: height 0.3s;
+    /* Smooth transition */
+}
+
+/* Style for comment submit button */
+.comment-submit {
+    /* Add your custom styles here */
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    /* Remove background color */
+    cursor: pointer;
+}
+
+/* create view */
+
+.content-section form p {
+    margin-bottom: 15px;
+}
+
+.content-section form label {
+    font-weight: bold;
+}
+
+.content-section form input[type="text"],
+.content-section form input[type="email"],
+.content-section form input[type="password"],
+.content-section form textarea {
+    width: 100%;
+    min-height: 45px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 17px;
+    box-sizing: border-box;
+}
+
+/* .content-section form input[type="file"]#id_post_image {
+pass
+}
+
+.content-section form input[type="file"]#id_post_video {
+    pass
+} */
